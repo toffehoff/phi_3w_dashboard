@@ -1,0 +1,90 @@
+ID;Organisation;Sector;Subsector;Service;Province_CODE;Municipality_CODE;Barangay;Status;Beneficiaries;Beneficiary_type
+57;PRC;Health;Safety;Assisted;722;72231;Lao;Finished;15;individuals
+55;PRC;Health;Safety;Assisted;837;83738;;Finished;25;individuals
+34;PRC;Relief;Food;Blanket;878;87805;Bacolod;Finished;15;families
+31;PRC;Relief;Food;Blanket;878;87805;Bool Central;Finished;55;families
+32;PRC;Relief;Food;Blanket;878;87805;Bool Central;Finished;65;families
+33;PRC;Relief;Food;Blanket;878;87805;Patag;Finished;67;families
+35;PRC;Relief;Food;Blanket;878;87805;Bitongto-an;Finished;70;families
+30;PRC;Relief;Food;Blanket;878;87805;Bool East;Finished;78;families
+80;PRC;Health;Safety;BP Taking;410;41005;Lipata;Finished;2;individuals
+82;PRC;Health;Safety;BP Taking;630;63035;;Finished;26;individuals
+65;PRC;Health;Safety;BP Taking;746;74611;;Finished;14;individuals
+81;PRC;Health;Safety;BP Taking;1667;166724;;Finished;40;individuals
+39;PRC;Health;Safety;BP Taking;1667;166724;;Finished;41;individuals
+8;PRC;Health;Safety;BP Taking;1667;166724;;Finished;66;individuals
+2;PRC;Health;Welfare;Child Friendly Activity;630;63005;;Finished;78;individuals
+58;PRC;Relief;Non Food Items;Clothing;837;83738;Manlilinao;Finished;40;families
+18;PRC;Relief;Non Food Items;Clothing (Individual);1752;175204;Nasucob;Finished;296;individuals
+17;PRC;Relief;Non Food Items;Clothing (Individual);1752;175204;Cambunang;Finished;602;individuals
+38;PRC;Health;Safety;First Aid;746;74611;;Finished;1;individual
+79;PRC;Health;Safety;First Aid;1667;166724;Lipata;Finished;1;individual
+51;PRC;Health;Safety;First Aid Station;722;72217;;Finished;1;unit
+22;PRC;Health;Safety;First Aid Station;837;83738;;Finished;1;unit
+40;PRC;Health;Safety;First Aid Station;541;54111;;Finished;1;unit
+60;PRC;Health;Safety;First Aid Station;746;74611;;Finished;1;unit
+83;PRC;Health;Safety;First Aid Station;1759;175910;Lipata;Finished;1;unit
+84;PRC;Health;Safety;First Aid Station;1667;166724;;Finished;1;unit
+85;PRC;Health;Safety;First Aid Station;1667;166724;;Finished;1;unit
+71;PRC;Health;Safety;First Aid Station;1667;166724;;Finished;1;unit
+9;PRC;Relief;Food;Food Items (Assorted);878;87805;Poblacion;Finished;100;families
+28;PRC;Relief;Food;Food Items (Assorted);878;87805;Bacolod;Finished;15;families
+25;PRC;Relief;Food;Food Items (Assorted);878;87805;Bool Central;Finished;55;families
+26;PRC;Relief;Food;Food Items (Assorted);878;87805;Bool Central;Finished;65;families
+27;PRC;Relief;Food;Food Items (Assorted);878;87805;Patag;Finished;67;families
+29;PRC;Relief;Food;Food Items (Assorted);878;87805;Bitongto-an;Finished;70;families
+24;PRC;Relief;Food;Food Items (Assorted);619;61913;Bool East;Finished;78;families
+68;PRC;Relief;Food;Food Items (Assorted);1752;175204;;Finished;3;families
+45;PRC;Relief;Food;Food Items (Standard);606;60611;;Finished;300;families
+4;PRC;Relief;Food;Food Items (Standard);606;60611;Baluan;Finished;302;families
+76;PRC;Relief;Food;Food Items (Standard);630;63005;Murtha;Finished;35;families
+12;PRC;Relief;Food;Food Items (Standard);630;63005;Liwagao;Finished;70;families
+10;PRC;Relief;Food;Food Items (Standard);1752;175204;San Isidro;Finished;168;families
+62;PRC;Relief;Food;Food Items (Standard);1752;175204;Centro Sur;Finished;204;families
+46;PRC;Relief;Food;Food Items (Standard);1752;175204;;Finished;221;families
+11;PRC;Relief;Food;Food Items (Standard);1751;175102;Maasin;Finished;260;families
+47;PRC;Relief;Food;Food Items (Standard);1751;175105;Rizal;Finished;293;families
+3;PRC;Relief;Food;Food Items (Standard);1751;175105;Cabalic;Finished;398;families
+20;PRC;Relief;Food;Food Items (Standard);1751;175105;;Finished;87;families
+63;PRC;Relief;Food;Food Items (Standard);1751;175105;Carmen;Finished;96;families
+48;PRC;Relief;Food;Food Items (Standard);1751;175110;Alibog;Finished;110;families
+69;IFRC;Welfare;Food;Hotmeals;410;41005;;Finished;61;individuals
+37;IFRC;Welfare;Food;Hotmeals;878;87805;Virginia;Finished;200;individuals
+77;IFRC;Welfare;Food;Hotmeals;878;87805;Poblacion;Finished;500;individuals
+89;IFRC;Welfare;Food;Hotmeals;619;61914;;Finished;579;individuals
+41;IFRC;Welfare;Food;Hotmeals;619;61914;Sapao;Finished;770;individuals
+50;IFRC;Welfare;Food;Hotmeals;619;61916;;Finished;26;individuals
+36;IFRC;Welfare;Food;Hotmeals;722;72217;Binongto;Finished;120;individuals
+64;IFRC;Welfare;Food;Hotmeals;630;63005;Man it;Finished;333;individuals
+73;IFRC;Welfare;Food;Hotmeals;630;63018;;Finished;65;individuals
+7;IFRC;Welfare;Food;Hotmeals;630;63035;;Finished;978;individuals
+1;IFRC;Welfare;Food;Hotmeals;837;83747;;Finished;79;individuals
+70;IFRC;Welfare;Food;Hotmeals;541;54111;;Finished;91;individuals
+74;IFRC;Welfare;Food;Hotmeals;1759;175910;Banica;Finished;450;individuals
+21;IFRC;Welfare;Food;Hotmeals;1759;175910;;Finished;482;individuals
+54;PRC;WASH;WASH;Hygiene Promotion;562;56212;;Finished;120;families
+19;PRC;Relief;Food;Medianoche;604;60405;Tigum;Finished;340;families
+5;PRC;Relief;Food;Medianoche;1752;175204;San Antonio;Finished;110;families
+6;PRC;Relief;Food;Medianoche;1751;175110;Payapay;Finished;120;families
+75;PRC;Relief;Food;Medianoche;860;86002;San Roque;Finished;572;families
+14;PRC;Relief;Food;Medianoche;860;86002;Maujao;Finished;300;families
+59;PRC;Relief;Non Food Items;Mosquito Net;837;83738;Manlilinao;Finished;40;families
+56;IFRC;Health;Welfare;Psychosocial First Aid;604;60406;Cawayan;Finished;1;individual
+43;IFRC;Health;Welfare;Psychosocial First Aid;604;60406;Naile;Finished;2;individuals
+44;IFRC;Health;Welfare;Psychosocial First Aid;604;60406;Maloco;Finished;2;individuals
+42;IFRC;Health;Welfare;Psychosocial First Aid;604;60415;;Finished;4;individuals
+78;PRC;Health;Welfare;Psychosocial First Aid;619;61908;;Finished;2;individuals
+49;IFRC;Health;Welfare;Psychosocial First Aid;619;64521;;Finished;4;individuals
+66;IFRC;Health;Welfare;Psychosocial First Aid;619;61913;;Finished;4;individuals
+67;IFRC;Health;Welfare;Psychosocial First Aid;1667;166724;;Finished;8;individuals
+16;PRC;WASH;WASH;Water Distribution;1752;175204;Nasucob;Finished;750;liters
+53;PRC;WASH;WASH;Water Distribution;1752;175204;;Finished;1500;liters
+13;PRC;WASH;WASH;Water Distribution;1752;175204;Poblacion;Finished;10,000;liters
+15;PRC;WASH;WASH;Water Distribution;562;56212;;Finished;3000;liters
+52;PRC;Health;Welfare;Welfare Desk;722;72217;;Finished;1;unit
+23;PRC;Health;Welfare;Welfare Desk;837;83738;;Finished;1;unit
+61;PRC;Health;Welfare;Welfare Desk;541;54111;;Finished;1;unit
+86;PRC;Health;Welfare;Welfare Desk;1759;175910;Lipata;Finished;1;unit
+87;PRC;Health;Welfare;Welfare Desk;1667;166724;;Finished;1;unit
+88;PRC;Health;Welfare;Welfare Desk;1667;166724;;Finished;1;unit
+72;PRC;Health;Welfare;Welfare Desk;1667;166724;;Finished;1;unit
