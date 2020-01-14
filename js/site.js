@@ -280,8 +280,8 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 	//Determine initial settings for the projection:
       var center = d3.geo.centroid(obj_provincesJSON)
 	  var scale  = 150;
-	  var width = 660;
-      var height  = 800;
+	  var width = 550;
+      var height  = 700;
       var offset = [width/2, height/2];
       var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
 
@@ -305,7 +305,6 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
       path = path.projection(projection);
 
 	//Define the map settings for the provinces:
-//  map_chart.width(660).height(800)
 	map_chart.width(550).height(700)
 	.dimension(xf.pcode)
 	.group(pcode)
@@ -408,8 +407,8 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 	  //Ideally the dimensions of the provinces map are the target:
       var center = d3.geo.centroid(obj_provincesJSON)
       var scale  = 150;
-	  var width = 660;
-	  var height = 800;
+	  var width = 550;
+	  var height = 700;
       var offset = [width/2, height/2];
       var projection = d3.geo.mercator().scale(scale).center(center)
           .translate(offset);
@@ -433,7 +432,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 
 
 	//Define the map settings for the provinces:
-	map2_chart.width(660).height(800)
+	map2_chart.width(550).height(700)
     .dimension(xf.mcode)
     .group(mcode)
 	.colors(d3.scale.quantile()
