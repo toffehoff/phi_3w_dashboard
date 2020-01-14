@@ -68,7 +68,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
     var all = xf.groupAll();
 
 
-	sector_chart.width(320).height(300)
+	sector_chart.width(320).height(200)
                 .dimension(xf.sector)
                 .group(sector)
                 .elasticX(true)
@@ -98,7 +98,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 				.xAxis().ticks(5)
 				;
 
-	organisation_chart.width(320).height(300)
+	organisation_chart.width(320).height(200)
                 .dimension(xf.organisation)
                 .group(organisation)
                 .elasticX(true)
