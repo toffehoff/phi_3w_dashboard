@@ -312,7 +312,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
   	.colors(d3.scale.quantile()
   	.domain([1,50])
   	.range(['#E5CF00','#DDA509','#D57C12','#CE521B','#C62924','#BF002D']))
-  	.colorCalculator(function (d) { return d ? map_chart.colors()(d) : '#cccccc'; })
+  	.colorCalculator(function (d) { return d ? map_chart.colors()(d) : '#dddddd'; })
     .overlayGeoJson(provincesJSON.features, "Province", function (d) { //use provincesJSON to reveal several provinces around the target area
                         return d.properties.P_Str;
                     })
@@ -439,7 +439,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
   	.colors(d3.scale.quantile()
   	.domain([1,12])
   	.range(['#E5CF00','#DDA509','#D57C12','#CE521B','#C62924','#BF002D']))
-  	.colorCalculator(function (d) { return d ? map2_chart.colors()(d) : '#cccccc'; })
+  	.colorCalculator(function (d) { return d ? map2_chart.colors()(d) : '#dddddd'; })
     .overlayGeoJson(municJSON.features, "Municipalities", function (d) { //Use municJSON data to reveal municipality details around the target municipalities.
                         return d.properties.MUN_P_STR;
                     })
