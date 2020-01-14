@@ -68,7 +68,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
   var all = xf.groupAll();
 
 
-	sector_chart.width(320).height(200)
+	sector_chart.width(300).height(200)
         .dimension(xf.sector)
         .group(sector)
         .elasticX(true)
@@ -85,7 +85,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 				.xAxis().ticks(5) // added
 				;
 
- 	service_chart.width('100%').height(300)
+ 	service_chart.width(500).height(300)
         .dimension(xf.service)
         .group(service)
         .elasticX(true)
@@ -98,7 +98,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 				.xAxis().ticks(5)
 				;
 
-	organisation_chart.width(320).height(200)
+	organisation_chart.width(300).height(200)
         .dimension(xf.organisation)
         .group(organisation)
         .elasticX(true)
