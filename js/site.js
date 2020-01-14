@@ -6,7 +6,7 @@ function provincesMapShow(){
             map2_chart.filterAll();
             dc.redrawAll();
         }
-        
+
 function municipalitiesMapShow(){
             $('#map').hide();  // hide provinces map
             $('#map2').show(); // show municipalities map
@@ -27,7 +27,7 @@ function deduplicate(data) {
     }
 }
 
-//Allow gradual build-up of dashboard:		
+//Allow gradual build-up of dashboard:
 // /$('#dashboard').hide(); //Removed to have a smoother start-up.
 $('#map').hide();
 //$('#services').hide();
@@ -44,14 +44,14 @@ var datatable = $('#dc-table-graph');
 
 
 d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
-	
+
 	//Extract header titles of each column. In total there will be 11 columns for these type of dashboards:
 	//ID, Organisation, Sector, Subsector, Service provided, Province_CODE, Municipality_CODE, Barangay, Status, Beneficiaries, Beneficiary type.
-	
+
 	var csv_headers = d3.keys(csv_data[0]);
-	
+
 	var xf = crossfilter(csv_data);
-	
+
 	//The dimension function is applied to the re-named column headers. Their titles are as in the html table:
 	xf.id = xf.dimension(function(d) {return d[csv_headers[0]]; }); //ID
     xf.organisation = xf.dimension(function(d) { return d[csv_headers[1]]; }); //Organisation
@@ -59,15 +59,15 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
     xf.service = xf.dimension(function(d) { return d[csv_headers[4]]; }); //Service provided
     xf.pcode = xf.dimension(function(d) { return d[csv_headers[5]]; }); //Province_CODE
     xf.mcode = xf.dimension(function(d) { return d[csv_headers[6]]; }); //Municipality_CODE
-			 
+
     var sector = xf.sector.group();
     var service = xf.service.group().reduceSum(function(d) {return d[csv_headers[9]];}); //Service
     var pcode = xf.pcode.group();
     var organisation = xf.organisation.group();
     var mcode = xf.mcode.group();
     var all = xf.groupAll();
-	
-			
+
+
 	sector_chart.width(320).height(300)
                 .dimension(xf.sector)
                 .group(sector)
@@ -77,14 +77,14 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
                 })
                 .colors(['#BF002D'])
                 .colorDomain([0,0])
-                .colorAccessor(function(d, i){return 1;})  
+                .colorAccessor(function(d, i){return 1;})
 				//.on('filtered',function(chart,filters){
 				//	if (chart.filters().length > 0) { $('#services').show();}
 				//	else {$('#services').hide();}
 				//})
 				.xAxis().ticks(5) // added
 				;
-		
+
  	service_chart.width(320).height(300)
                 .dimension(xf.service)
                 .group(service)
@@ -97,7 +97,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
                 .colorAccessor(function(d, i){return 1;})
 				.xAxis().ticks(5)
 				;
-			
+
 	organisation_chart.width(320).height(300)
                 .dimension(xf.organisation)
                 .group(organisation)
@@ -110,9 +110,9 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
                 .colorAccessor(function(d, i){return 1;})
 				.xAxis().ticks(5)
 				;
-	
-	
-	
+
+
+
 	//Determine dimension of table for the search functionality.
 	//Removed the function .toLowerCase().
 	var tableDimension = xf.dimension(function (d) { return d[csv_headers[1]] + ' ' +
@@ -125,8 +125,8 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 													d[csv_headers[8]] + ' ' +
 													d[csv_headers[9]] + ' ' +
 													d[csv_headers[10]];});
-	
-		
+
+
 	//Set options and columns for datatable:
 	var dataTableOptions = {
         "bSort": true,
@@ -158,7 +158,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 				targets: 3,
 				data: function (d) { return d[csv_headers[4]];}, //Service provided
 				defaultContent: ''
-				
+
 			},
 			{
 				targets: 4,
@@ -168,7 +168,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 			{
 				targets: 5,
 				data: function (d) {return mcode2mun[d[csv_headers[6]]];}, //Municipality
-				defaultContent: ''				
+				defaultContent: ''
 			},
 			{
 				targets: 6,
@@ -190,30 +190,30 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 				data: function (d) {return d[csv_headers[10]];}, //Beneficiary type
 				defaultContent: ''
 			}
-			
+
 		]
 	};
-	
+
 	//Initialize datatable:
 	datatable.dataTable(dataTableOptions);
-	
+
 	//Update counter info at the top of the page:
 	dc.dataCount("#count-info")
 		.dimension(xf)
-		.group(all);	
-	
+		.group(all);
+
 	//Loading geojson file for the provinces:
 	d3.json("data/Phil_provinces.geojson", function (provincesJSON) {
-		
+
 	var json = JSON.stringify(provincesJSON); //Stringify the data
 	var js = JSON.parse(json); //Turn into JSON object with array entries.
-	
+
 	//Extract only province names from total data set:
 	var data_prov = csv_data.map(function(d) {return d[csv_headers[5]]});
-	
+
 	//Extract only municipality names from total data set:
 	var data_mun = csv_data.map(function(d) {return d[csv_headers[6]]});
-	
+
 	var count = js.features.length; //number of entries in js object.
 
 	var unique_data_prov = deduplicate(data_prov); //extract only unique entries for the provinces:
@@ -225,7 +225,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 				if ((unique_data_prov.indexOf(js.features[j].properties.P_Str)) > 0) {//P_Str entry is part of the csv's "province code" column.
 				//console.log('Also in list: ',j, js.features[j].properties.P_Str);
 				}
-				
+
 				if ((unique_data_prov.indexOf(js.features[j].properties.P_Str)) < 0) {//P_Str entry is not part of the csv's "province code" column, so delete
 																					  //key-value pairs from object js.
 					//console.log('Index, pos and P_Str: ',j,unique_data_prov.indexOf(js.features[j].properties.P_Str),js.features[j].properties.P_Str);
@@ -239,7 +239,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 					delete js.features[j].geometry;
 					delete js.features[j].coordinates;
 				}
-					
+
 	}
 
 	js = JSON.stringify(js); //Stringify object in order to do several search/replace actions using regex functionality.
@@ -258,7 +258,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 	else {
 		var n = m; //nothing to replace, assign string to another variable.
 	}
-	
+
 	// Check if there is any 'floating comma' in the last row entry of the object:
 	if (n.lastIndexOf(',') >= 0) {
 		var ind = n.lastIndexOf(','); //determine position of the comma in the object.
@@ -270,13 +270,13 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 
 
 	var obj_provincesJSON = JSON.parse(p); //transform back to an object, as this will be used for the mapping function later on.
-	
+
 	/*
 	if ((unique_data_prov.length) != (obj_provincesJSON.features.length)) {
-		alert('Number of entries in obj_provincesJSON: ' + '(' + obj_provincesJSON.features.length + ')' + ' is not equal to\nthe number of unique entries for provinces in csv file: ' + '(' + unique_data_prov.length + ')');	
+		alert('Number of entries in obj_provincesJSON: ' + '(' + obj_provincesJSON.features.length + ')' + ' is not equal to\nthe number of unique entries for provinces in csv file: ' + '(' + unique_data_prov.length + ')');
 	}
 	*/
-	
+
 	//Determine initial settings for the projection:
       var center = d3.geo.centroid(obj_provincesJSON)
 	  var scale  = 150;
@@ -284,13 +284,13 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
       var height  = 800;
       var offset = [width/2, height/2];
       var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
-	  	  	  
+
       //Create the path:
       var path = d3.geo.path().projection(projection);
 
-      //Using the path, determine the bounds of the current map and use 
+      //Using the path, determine the bounds of the current map and use
       //these to determine more suitable values for the scale and translation
-      	  
+
 	  var bounds  = path.bounds(obj_provincesJSON); //determine the outer bounds based on rectangular coordinates of the filtered provinces.
       var hscale  = scale*width  / (bounds[1][0] - bounds[0][0]); //horizontal scale of the outer box based on x-coordinates.
       var vscale  = scale*height / (bounds[1][1] - bounds[0][1]); //vertical scale of the outer box based on y-coordinates.
@@ -298,14 +298,15 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
       var offset  = [width - (bounds[0][0] + bounds[1][0])/2,
                         height - (bounds[0][1] + bounds[1][1])/2];
 
-	  	
+
       //New projection
       projection = d3.geo.mercator().center(center).scale(scale).translate(offset);
-	  
+
       path = path.projection(projection);
-	
+
 	//Define the map settings for the provinces:
-	map_chart.width(660).height(800)
+//  map_chart.width(660).height(800)
+	map_chart.width(550).height(700)
 	.dimension(xf.pcode)
 	.group(pcode)
 	.colors(d3.scale.quantile()
@@ -315,34 +316,34 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
     .overlayGeoJson(provincesJSON.features, "Province", function (d) { //use provincesJSON to reveal several provinces around the target area
                         return d.properties.P_Str;
                     })
-                    //Set the values for the center, scale and offset:					
+                    //Set the values for the center, scale and offset:
 					.projection(d3.geo.mercator()
 					.center(center) 	//determine center of the selected provinces in the trimmed json object.
 					.scale(scale) 		//determine the zooming factor to make the map with provinces fit inside the 660 x 800 pixels frame.
 					.translate(offset) 	//determine the translation that will move the center of the selected provinces to the center of the 660 x 800 pixels frame.
 					)
-										
+
                     .title(function (d) { //when user hovers mouse over a province, indicate the province name and number of activities.
 					if (d.value === 1) { //province selected has no activities:
-						return "Province: " + pcode2prov[d.key] + " - " + d.value + ' activity';						
+						return "Province: " + pcode2prov[d.key] + " - " + d.value + ' activity';
 					}
 					else { //province selected with 1 or more activities:
 						return "Province: " + pcode2prov[d.key] + " - " + d.value + ' activities';
 					}
-	
+
 	});
-	
+
 		//Loading geojson file for the municipalities:
 		d3.json("data/Phil_municipalities.geojson", function (municJSON){
-	
+
 	var munic_json = JSON.stringify(municJSON); //stringify the data
 	var mjs = JSON.parse(munic_json); //turn into JSON object for removing key entries
 	var data_mun = csv_data.map(function(d) {return d[csv_headers[6]]});
-	
+
 	var m_count = mjs.features.length; //number of entries in mjs object.
 
 	var unique_data_munic = deduplicate(data_mun); //extract only unique entries for the municipalities:
-	
+
 
 	for (k = 0; k < m_count; k++) { //search in mjs object
 				//Check if a MUN_P_Str entry of the mjs object is also included in the csv's "municipality code" column. If it is, do nothing. Otherwise delete the entire entry
@@ -350,7 +351,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 				if ((unique_data_munic.indexOf(mjs.features[k].properties.MUN_P_STR)) > 0) {//MUN_P_Str entry is part of the csv's "municipality code" column.
 				//console.log('Also in list: ',j, js.features[j].properties.MUN_P_STR);
 				}
-				
+
 				if ((unique_data_munic.indexOf(mjs.features[k].properties.MUN_P_STR)) < 0) {//MUN_P_Str entry is not part of the csv's "municipality code" column, so delete entire
 																							//entry from the mjs object.
 					//console.log('Index, pos and P_Str: ',j,unique_data_prov.indexOf(js.features[j].properties.P_Str),js.features[j].properties.P_Str);
@@ -365,13 +366,13 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 					delete mjs.features[k].geometry;
 					delete mjs.features[k].coordinates;
 				}
-					
+
 	}
-	
+
 	mjs = JSON.stringify(mjs);	//Stringify object in order to do several search/replace actions using regex functionality.
-			
+
 	//Use regex functionality to match a string of curly braces with a comma and replace it with an empty string.
-	//Flags /gm: global search (g) and including line transitioning (m) 
+	//Flags /gm: global search (g) and including line transitioning (m)
 
 	var s = mjs.replace(/(\{\}),/gm,' ');
 
@@ -384,7 +385,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 	else {
 		var t = s;
 	}
-	
+
 	// Check if there is any 'floating comma' in the last row entry of the object:
 	if (t.lastIndexOf(',') >= 0) {
 		var ind = t.lastIndexOf(','); //determine position of the comma in the object.
@@ -394,15 +395,15 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 		var u = t.substr(0,t.length); //there is no floating comma, so use the full object as is.
 	}
 
-		
+
 	var obj_municJSON = JSON.parse(u);
-	
+
 	/*
 	if ((unique_data_munic.length) != (obj_municJSON.features.length)) {
-		alert('Number of entries in obj_municJSON: ' + '(' + obj_municJSON.features.length + ')' + ' is not equal to\nthe number of unique entries for municipalities in csv file: ' + '(' + unique_data_munic.length + ')');	
+		alert('Number of entries in obj_municJSON: ' + '(' + obj_municJSON.features.length + ')' + ' is not equal to\nthe number of unique entries for municipalities in csv file: ' + '(' + unique_data_munic.length + ')');
 	}
-	*/	
-	
+	*/
+
 	  //Determine initial settings for the projection.
 	  //Ideally the dimensions of the provinces map are the target:
       var center = d3.geo.centroid(obj_provincesJSON)
@@ -429,8 +430,8 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
       projection = d3.geo.mercator().center(center)
       .scale(scale).translate(offset);
       path = path.projection(projection);
-		
-		
+
+
 	//Define the map settings for the provinces:
 	map2_chart.width(660).height(800)
     .dimension(xf.mcode)
@@ -442,32 +443,32 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
     .overlayGeoJson(municJSON.features, "Municipalities", function (d) { //Use municJSON data to reveal municipality details around the target municipalities.
                         return d.properties.MUN_P_STR;
                     })
-                    					
+
 					.projection(d3.geo.mercator()
 					.center(center)		//determine center of the selected provinces in the trimmed json object.
 					.scale(scale)		//determine the zooming factor to make the map with municipalities fit inside the 660 x 800 pixels frame.
 					.translate(offset)	//determine the translation that will move the center of the selected municipalities to the center of the 660 x 800 pixels frame.
 					)
-			
+
                     .title(function (d) { //when user hovers mouse over a municipality, indicate the municipality name and number of activities.
 					   if (d.value === 1) { //municipality has no activities:
-							return "Municipality: " + mcode2mun[d.key] + " - " + d.value + ' activity';				
+							return "Municipality: " + mcode2mun[d.key] + " - " + d.value + ' activity';
 					   }
 					   else //municipality selected has 1 or more activities:
 					   {
-						   return "Municipality: " + mcode2mun[d.key] + " - " + d.value + ' activities';						
+						   return "Municipality: " + mcode2mun[d.key] + " - " + d.value + ' activities';
 					   }
-					
+
 					});
-	
+
 					$('#loading').hide();
                     $('#dashboard').show();
-                    
+
 					dc.renderAll();
-                            
+
                     });
 
-		
+
 	function RefreshTable() {
             dc.events.trigger(function () {
                 alldata = tableDimension.top(Infinity);
@@ -476,16 +477,16 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
                 datatable.fnDraw();
             });
         }
-	
-		
+
+
 	for (var i = 0; i < dc.chartRegistry.list().length; i++) {
 		var chartI = dc.chartRegistry.list()[i];
 		chartI.on("filtered", RefreshTable);
 	}
-	
-						
+
+
 	RefreshTable();
-	
+
 });
-	
+
 });
