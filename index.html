@@ -22,7 +22,8 @@
     </div>
   </div>
 
-  <div class="container" id="dashboard">
+<!--  <div class="container" id="dashboard" style="display: none;"> -->
+  <div class="container" id="dashboard" style="display: none;>
     <!-- header -->
     <div class="row page_header">
       <div class="col-xs-12 col-md-6">
@@ -70,10 +71,12 @@
       <div class="col-xs-12 col-md-6">
 
         <div id="map">
-          <h4>Response area</h4><button onclick="municipalitiesMapShow();" class="button-secondary">Municipalities</button><button onclick="municipalitiesMapShow();" class="button-success">Provinces</button>
+          <div style="display: block; float: right"><button onclick="municipalitiesMapShow();" class="button-secondary">Municipalities</button><button onclick="municipalitiesMapShow();" class="button-success">Provinces</button></div>
+          <h4>Response area</h4>
         </div>
         <div id="map2">
-          <h4>Response area</h4><button onclick="municipalitiesMapShow();" class="button-success">Municipalities</button><button onclick="provincesMapShow();" class="button-secondary">Provinces</button>
+          <div style="display: block; float: right"><button onclick="municipalitiesMapShow();" class="button-success">Municipalities</button><button onclick="provincesMapShow();" class="button-secondary">Provinces</button></div>
+          <h4>Response area</h4>
         </div>
 
       </div>
