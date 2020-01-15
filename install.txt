@@ -1,0 +1,6 @@
+HOW TO CREATE A NEW DASHBOARD
+
+- Download this repository in a ZIP
+- Update the 3W_Data.csv file with the correct data
+- Update the ./js/config.js file
+- Deploy to a new repository
