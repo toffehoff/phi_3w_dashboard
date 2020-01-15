@@ -28,8 +28,8 @@ function deduplicate(data) {
 }
 
 // Fill in title and last updated values from the configfile
-$('#page_header_title').text(config_Title + '<br />PRC 3W Dashboard');
-$('#page_header_subtitle').text('<strong>Explore What PRC does Where for ' + config_Title + '.</strong><br />Last update: ' + config_LastUpdate);
+$('#page_header_title').innerHTML(config_Title + '<br />PRC 3W Dashboard');
+$('#page_header_subtitle').innerHTML('<strong>Explore What PRC does Where for ' + config_Title + '.</strong><br />Last update: ' + config_LastUpdate);
 
 //Allow gradual build-up of dashboard:
 // /$('#dashboard').hide(); //Removed to have a smoother start-up.
