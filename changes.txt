@@ -1,0 +1,46 @@
+3W DASHBOARD TEMPLATE
+
+===================================================================
+Updates 15.01.2020
+Henk Hoff (Netherlands Red Cross)
+
+Changes:
+- Rearranged the header, graphs and map
+- Cleaned the bootstrap layout in the index.html
+- Added a config.js file in which title, lastupdate date, width and height of graphs and map can be set
+- The selector between the two maps is now shown as a button, making it more clear to be a selector
+- The dashboard is shown after data is loaded
+
+
+===================================================================
+Updates 06.02.2017
+Kamal Ahmed (Netherlands Red Cross)
+
+This version of the dashboard has the following features:
+•	From a user-experience perspective: if graphs are relevant for understanding outcomes and if there is no restriction in terms of available space on the site, they need to be made visible.
+•	A dynamic table using JQuery DataTables has been added to enable:
+  o	Sorting any of the columns in alphabetical order,
+  o	Shortening of the table by adding pagination of table entries (default number of entries per page: 50), but user can select: 25, 50 or show all entries in table,
+  o	Searching for table entries using a free text-format. Upon clicking the "Reset button" the search item will be cleared.
+•	The map showing the provinces and municipalities is automatically zoomed and positioned to fit in the 660 x 800 pixels frame, by:
+  o	Trimming the entries of the geojson files to only focus on the provinces and municipalities of interest.
+  o	Using d3's path bound function to obtain coordinates of the rectangle enclosing the targeted provinces and municipalities.
+  o	Automatically updating the Mercator projection's functions for centering, scaling and translating.
+•	The code has been commented for ongoing maintenance and allowing further improvements where needed.
+
+Suggestions
+•	Using an initialisation file enabling users to quickly update basic information in an HTML file, without the need for them to modify the HTML code. Basic information is for example:
+  o	Title of natural disaster,
+  o	Purpose of dashboard,
+  o	Version information,
+  o	Release date, and
+  o	Name of dashboard developer(s)
+•	The table header entries in the CSV data file will have spaces in their titles, which now need to be adjusted manually to resemble the headers of the data table. We may be able to have more consistency in the type of input needed.
+•	Testing of dashboard using different web browsers.
+•	Other requests from end-users?
+
+=====================================================================
+
+The dashboard is largely based on an earlier version of the dashboard template created for the Philippines Red Cross
+Simon Johnson (British Red Cross)
+Dan Joseph (American Red Cross)
