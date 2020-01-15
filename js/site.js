@@ -27,6 +27,10 @@ function deduplicate(data) {
     }
 }
 
+// Fill in title and last updated values from the configfile
+$('page_header_title').update(config_Title + '<br />PRC 3W Dashboard');
+$('page_header_subtitle').update('<strong>Explore What PRC does Where for ' + config_Title + '.</strong><br />Last update: ' + config_LastUpdate);
+
 //Allow gradual build-up of dashboard:
 // /$('#dashboard').hide(); //Removed to have a smoother start-up.
 $('#map').hide();
@@ -68,7 +72,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
   var all = xf.groupAll();
 
 
-	sector_chart.width(290).height(200)
+	sector_chart.width(config_sector_chart_width).height(config_sector_chart_height)
         .dimension(xf.sector)
         .group(sector)
         .elasticX(true)
@@ -85,7 +89,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 				.xAxis().ticks(5) // added
 				;
 
- 	service_chart.width(500).height(300)
+ 	service_chart.width(config_service_chart_width).height(config_service_chart_height)
         .dimension(xf.service)
         .group(service)
         .elasticX(true)
@@ -98,7 +102,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 				.xAxis().ticks(5)
 				;
 
-	organisation_chart.width(290).height(200)
+	organisation_chart.width(config_organisation_chart_width).height(config_organisation_chart_height)
         .dimension(xf.organisation)
         .group(organisation)
         .elasticX(true)
@@ -281,8 +285,8 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 	//Determine initial settings for the projection:
     var center = d3.geo.centroid(obj_provincesJSON)
 	  var scale  = 150;
-	  var width = 550;
-    var height  = 600;
+	  var width = config_map_width;
+    var height  = config_map_height;
     var offset = [width/2, height/2];
     var projection = d3.geo.mercator().scale(scale).center(center).translate(offset);
 
@@ -306,7 +310,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
     path = path.projection(projection);
 
 	//Define the map settings for the provinces:
-	map_chart.width(550).height(600)
+	map_chart.width(config_map_width).height(config_map_height)
   	.dimension(xf.pcode)
   	.group(pcode)
   	.colors(d3.scale.quantile()
@@ -408,8 +412,8 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
   //Ideally the dimensions of the provinces map are the target:
     var center = d3.geo.centroid(obj_provincesJSON)
     var scale  = 150;
-	  var width = 550;
-	  var height = 600;
+	  var width = config_map_width;
+	  var height = config_map_height;
     var offset = [width/2, height/2];
     var projection = d3.geo.mercator().scale(scale).center(center)
         .translate(offset);
@@ -433,7 +437,7 @@ d3.dsv(';')("data/3W_Data.csv", function(csv_data) {
 
 
 	//Define the map settings for the provinces:
-	map2_chart.width(550).height(600)
+	map2_chart.width(config_map_width).height(config_map_height)
     .dimension(xf.mcode)
     .group(mcode)
   	.colors(d3.scale.quantile()

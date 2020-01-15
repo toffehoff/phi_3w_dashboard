@@ -23,15 +23,15 @@
   </div>
 
 <!--  <div class="container" id="dashboard" style="display: none;"> -->
-  <div class="container" id="dashboard" style="display: none;">
+  <div class="container" id="dashboard" >
     <!-- header -->
     <div class="row page_header">
       <div class="col-xs-12 col-md-6">
         <img src="./images/prc_logo (disabled).png" class="logo" />
-					<h3>Typhoon Ursula Operation<br>PRC 3W Dashboard</h3>
+					<h3 id="page_header_title">PRC 3W Dashboard</h3>
       </div>
       <div class="col-xs-12 col-md-6">
-          <strong>Explore What PRC does Where for Typhoon Ursula Operation.</strong><br>Last update: 09 January 2020
+          <span id="page_header_subtitle"><strong>Explore What PRC does Where.</strong><br />&nbsp;</span>
         <div id="count-info"><span class="filter-count "></span> selected out of <span class="total-count "></span> activities
           &nbsp;&nbsp;&nbsp;
           <a class="btn btn-primary btn-sm" id="reset" href="javascript:dc.filterAll();dc.redrawAll();datatable.dataTable().fnFilter('');">Reset All</a>
@@ -114,6 +114,8 @@
     Created by Elaine Manzon - elaine.manzon@redcross.org.ph - Skype: alcantaraelaineb
 
   </div>
+
+<script type="text/javascript" src="./js/config.js"></script>
 <script type="text/javascript" src="./js/d3.js"></script>
 <script type="text/javascript" src="./js/crossfilter.js"></script>
 <script type="text/javascript" src="./js/dc.js"></script>
