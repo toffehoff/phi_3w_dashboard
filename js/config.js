@@ -3,6 +3,10 @@
 var config_Title = 'Typhoon Ursula Operation';
 var config_LastUpdate = '09 January 2020';
 
+var config_author = 'Elaine Manzon';
+var config_email = 'elaine.manzon@redcross.org.ph';
+var config_skype = 'alcantaraelaineb';
+
 var config_sector_chart_height = 200;
 var config_sector_chart_width = 290;
 

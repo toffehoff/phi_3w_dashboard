@@ -36,8 +36,14 @@
 }
 
 .page_header {
-	background-color: #ddd;
+	background-color: #eee;
 	padding: 6px;
+}
+
+.page_footer {
+	background-color: #eee;
+	padding: 5px;
+	font-style: italic;
 }
 
 .btn {
