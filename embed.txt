@@ -1,0 +1,12 @@
+EMBED THIS DASHBOARD ON GO.IFRC.ORG
+
+To embed this dashboard on go.ifrc.org follow the following steps:
+
+- on go.ifrc.org and go to the page you want to add the dashboard on
+- click on "edit event" (and login with your credentials)
+- Scoll down to the section SNIPPETS
+- Copy and paste code below into the snippet object box. Change the DASHBOARD-NAME with the name of the github repo.
+
+	<iframe width="933" height="800" src="https://philippineredcross.github.io/DASHBOARD-NAME" frameborder="0" allowFullScreen="true"></iframe>
+
+- Scroll down and click on SAVE
